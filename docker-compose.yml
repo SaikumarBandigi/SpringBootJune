@@ -1,0 +1,33 @@
+version: '3'
+services:
+  spring-boot-app:
+    image: your-spring-boot-image:latest
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql_container:3306/springbootjune
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 1234
+    depends_on:
+      - mysql_container
+    networks:
+      - my-network
+    # Other Spring Boot service configuration
+
+  mysql_container:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: your-root-password
+      MYSQL_DATABASE: springbootjune
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 1234
+    volumes:
+      - /path/to/your/custom/my.cnf:/etc/mysql/my.cnf
+    ports:
+      - "3306:3306"
+    networks:
+      - my-network
+    # Other MySQL container configuration
+
+networks:
+  my-network:

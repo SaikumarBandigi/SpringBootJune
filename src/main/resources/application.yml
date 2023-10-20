@@ -1,0 +1,32 @@
+#paytm.payment:
+#  sandbox:
+#    merchantId: sviaeV91055242769175
+#    merchantKey: IIaDwHcg4Nc4xLIH
+#    channelId: WEB
+#    website: WEBSTAGING
+#    industryTypeId: Retail
+#    paytmUrl: https://securegw-stage.paytm.in/order/process
+#    callbackUrl: http://localhost:8080/pgresponse
+#    details:
+#      MID: ${paytm.payment.sandbox.merchantid}
+#      CHANNEL_ID: ${paytm.payment.sandbox.channelid}
+#      INDUSTRY_TYPE_ID: ${paytm.payment.sandbox.industrytypeid}
+#      WEBSITE: ${paytm.payment.sandbox.website}
+#      CALLBACK_URL: ${paytm.payment.sandbox.callbackUrl}
+
+      #    merchantId: RTbPqV7516185131746
+      #    merchantKey: bU7T%%LoCGqKeUF
+
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/springbootjune?autoReconnect=true&allowPublicKeyRetrieval=true&useSSl=false
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: true
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
