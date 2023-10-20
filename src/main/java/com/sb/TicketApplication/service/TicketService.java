@@ -5,6 +5,8 @@ import com.sb.TicketApplication.model.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TicketService {
 
@@ -47,4 +49,29 @@ public class TicketService {
     public Ticket updateTicketUsingJson(Ticket ticket) {
         return ticketRepository.save(ticket);
     }
+
+
+    // save All
+    public void sAll(Iterable<Ticket> tickets) {
+        ticketRepository.saveAll(tickets);
+    }
+
+    //findAllById
+    public Iterable<Ticket> findAll(List<Integer> ticketids) {
+        return  ticketRepository.findAllById(ticketids);
+    }
+
+    //deleteAllById
+    public void deleteAllById(List<Integer> ids)
+    {
+        ticketRepository.deleteAllById(ids);
+    }
+
+    // adv get ticket by passenger Name
+    public Ticket getTicketadv(String s)
+    {
+        return ticketRepository.getByPassengerName(s);
+    }
+
+
 }

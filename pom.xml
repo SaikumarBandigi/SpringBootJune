@@ -31,11 +31,17 @@
         </dependency>
 
 
-<!--        <dependency>-->
-<!--            <groupId>org.postgresql</groupId>-->
-<!--            <artifactId>postgresql</artifactId>-->
-<!--            <scope>runtime</scope>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.0.33</version>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -49,16 +55,48 @@
             <scope>test</scope>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>net.sf.jasperreports</groupId>-->
+<!--            <artifactId>jasperreports</artifactId>-->
+<!--            <version>6.9.0</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-actuator</artifactId>-->
+<!--        </dependency>-->
+
+
+        <!--springfox dependencies for api documentations in swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+
         <!--		<dependency>-->
         <!--			<groupId>org.springframework.kafka</groupId>-->
         <!--			<artifactId>spring-kafka</artifactId>-->
         <!--		</dependency>-->
 
-        		<dependency>
-        			<groupId>com.h2database</groupId>
-        		<artifactId>h2</artifactId>
-        			<scope>runtime</scope>
-        		</dependency>
+<!--        		<dependency>-->
+<!--        			<groupId>com.h2database</groupId>-->
+<!--        		<artifactId>h2</artifactId>-->
+<!--        			<scope>runtime</scope>-->
+<!--        		</dependency>-->
 
 
                   <!--      <dependency>-->
@@ -74,6 +112,31 @@
 
         -->
 
+
+
+<!-- paytm -->
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.tomcat.embed</groupId>-->
+        <!--            <artifactId>tomcat-embed-jasper</artifactId>-->
+        <!--        </dependency>-->
+
+        <!--        <dependency>-->
+        <!--            <groupId>com.paytm.pg</groupId>-->
+        <!--            <artifactId>paytm-checksum</artifactId>-->
+        <!--            <version>1.2.1</version>-->
+        <!--        </dependency>-->
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+        <!--        </dependency>-->
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-configuration-processor</artifactId>-->
+        <!--            <optional>true</optional>-->
+        <!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -91,6 +154,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>docker-spring-boott</finalName>
     </build>
 
 </project>
