@@ -14,19 +14,19 @@ public class WorkerService {
     private WorkerDao workerDao;
 
 
-//    public void saveAddre(Worker worker) {
-//        workerDao.save(worker);
-//    }
-
-    @Transactional
     public void saveAddre(Worker worker) {
-        // Associate the addresses with the worker
-        for (Address address : worker.getAddress()) {
-            address.setWorker(worker);
-        }
-
         workerDao.save(worker);
     }
+
+//    @Transactional
+//    public void saveAddre(Worker worker) {
+//        // Associate the addresses with the worker
+//        for (Address address : worker.getAddress()) {
+//            address.setWorker(worker);
+//        }
+//
+//        workerDao.save(worker);
+//    }
 
 
 }

@@ -12,13 +12,7 @@ public class Worker {
     private int wid;
     private String wname;
 
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER, targetEntity = Address.class)
-    private Address address;
-
-    public int getWid() {
-        return wid;
-    }
-
+    public int getWid() {return wid;}
 
     public void setWid(int wid) {
         this.wid = wid;
