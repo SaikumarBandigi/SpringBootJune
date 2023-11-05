@@ -16,7 +16,6 @@ public class TicketController {
 
     @PostMapping("/save")
     public Ticket saveTicket(@RequestBody Ticket ticket) {
-
         return ticketService.SaveTicket(ticket);
     }
 

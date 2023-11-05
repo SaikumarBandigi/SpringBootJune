@@ -11,7 +11,20 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int aid;
 
-    private String city;
+    private String aname;
+
+    public Worker getWorker() {
+        return worker;
+    }
+
+    public void setWorker(Worker worker) {
+        this.worker = worker;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "fk_wid",referencedColumnName = "wid")
+    private Worker worker;
+
 
     public int getAid() {
         return aid;
@@ -21,11 +34,11 @@ public class Address {
         this.aid = aid;
     }
 
-    public String getCity() {
-        return city;
+    public String getAname() {
+        return aname;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setAname(String aname) {
+        this.aname = aname;
     }
 }

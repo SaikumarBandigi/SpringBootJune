@@ -4,10 +4,16 @@ package com.sb;
 //import com.sb.report.EmployeeRepo;
 //import com.sb.report.ReportService;
 //import net.sf.jasperreports.engine.JRException;
+
+
+import com.sb.employeeapplication.Employee;
+import com.sb.employeeapplication.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,19 +25,31 @@ import java.util.List;
 public class SpringBootJuneApplication {
 
 
-//  @Autowired
+    //  @Autowired
 //  private TicketService ticketService;
 //
-//    @Autowired
-//    private EmployeeService employeeService;
+    @Autowired
+    private EmployeeService employeeService;
 
 //    @Autowired
 //    private UserRepository userRepository;
 
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(SpringBootJuneApplication.class, args);
+
     }
 
+//    @Bean
+//    CommandLineRunner commandLineRunner(EmployeeService employeeService) {
+//        return args -> {
+//            Employee employee1 = new Employee();
+//            employee1.setEmpname("Prabhas Raju");
+//            employee1.setDesignation("Actor");
+//            employee1.setSalary(50450l);
+//            employee1.setAddress("Jubilee Hilss,Road No:44,Hyderabad");
+//            employeeService.createEmp(employee1);
+//        };
+//    }
 
 //    @Override
 //    public void run(String... args) throws Exception {
@@ -43,7 +61,7 @@ public class SpringBootJuneApplication {
 //        employeeService.createEmp(employee1);
 //    }
 
-    ///////////////////////////
+///////////////////////////
 
 //    @Override
 //    public void run(String... args) throws Exception {
@@ -58,7 +76,7 @@ public class SpringBootJuneApplication {
 //    }
 
 
-    // angular
+// angular
 //    @Override
 //    public void run(String...args) throws Exception {
 //        this.userRepository.save(new User("Ramesh", "Fadatare", "ramesh@gmail.com"));
