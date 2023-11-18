@@ -1,5 +1,8 @@
-package com.sb.crud;
+package com.sb.crud.controller;
 
+import com.sb.crud.model.Product;
+import com.sb.crud.repository.ProductRepo;
+import com.sb.crud.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -43,8 +46,14 @@ public class ProductController {
     }
 
     @GetMapping("/getProductsByDynamicLetter/{LETTER}")
-    public List<Product> getProductsStartingWithLetter(@PathVariable("LETTER") String Letter) {
-        return productService.findByNameStartingWithDynamicLetter(Letter);
+    public List<Product> getProductsStartingWithDynamicLetter(@PathVariable("LETTER") String letter) {
+        return productService.getProductsStartingWithDynamicLetter(letter);
+    }
+
+
+    @GetMapping("/getProductsContaingLetter/{LETTER}")
+    public List<Product> getProductsContaingLetter(@PathVariable("LETTER") String letter) {
+        return productService.getProductsContaingLetter(letter);
     }
 
 }

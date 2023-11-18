@@ -1,5 +1,7 @@
-package com.sb.crud;
+package com.sb.crud.service;
 
+import com.sb.crud.model.Product;
+import com.sb.crud.repository.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,8 +33,13 @@ public class ProductService {
         return productRepo.findByNameStartingWithD();
     }
 
-
-    public List<Product> findByNameStartingWithDynamicLetter(String letter) {
+    public List<Product> getProductsStartingWithDynamicLetter(String letter) {
         return productRepo.findByNameStartingWithDynamicLetter(letter);
     }
+
+    public List<Product> getProductsContaingLetter(String letter) {
+        return productRepo.findByNameContainingLetterS("%" + letter.toLowerCase() + "%");
+    }
+
+
 }
