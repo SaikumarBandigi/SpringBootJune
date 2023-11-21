@@ -19,12 +19,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
+@EnableWebMvc
 public class SpringBootJuneApplication implements CommandLineRunner {
 
 

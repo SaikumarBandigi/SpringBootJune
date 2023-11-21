@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Operations</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #7F7FD5, #86A8E7, #91EAE4);
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333333;
+            text-align: center;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333333;
+        }
+
+        input, select, button {
+            margin-bottom: 15px;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h3 {
+            margin-top: 20px;
+            color: #333333;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #4caf50;
+            color: #ffffff;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+        }
+
+        li:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <h2>Math Operations</h2>
+
+    <!-- Form for EVEN, ODD, PRIME -->
+    <form th:action="@{/api/math/ask}" method="get">
+        <label for="operation">Select Operation:</label>
+        <select name="operation" id="operation">
+            <option value="EVEN">Even Numbers</option>
+            <option value="ODD">Odd Numbers</option>
+            <option value="PRIME">Prime Numbers</option>
+        </select>
+
+        <!-- Updated: Input for Start Range -->
+        <label for="start">Start Range:</label>
+        <input type="number" id="start" name="start" required />
+
+        <!-- Updated: Input for End Range -->
+        <label for="end">End Range:</label>
+        <input type="number" id="end" name="end" required />
+
+        <button type="submit">Get Numbers</button>
+    </form>
+
+    <!-- Form for VOWELS -->
+    <form th:action="@{/vowels}" method="get">
+        <label for="vowelInput">Enter a String:</label>
+        <input type="text" id="vowelInput" name="name" />
+
+        <button type="submit">Get Vowels</button>
+    </form>
+
+    <!-- Output for both forms -->
+    <h3>Output:</h3>
+    <ul th:if="${numbers}" th:each="num : ${numbers}">
+        <li th:text="${num}"></li>
+    </ul>
+</div>
+
+</body>
+</html>
