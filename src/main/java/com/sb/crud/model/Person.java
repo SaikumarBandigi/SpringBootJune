@@ -2,7 +2,6 @@ package com.sb.crud.model;
 
 import java.util.Date;
 
-import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +12,6 @@ import javax.persistence.Table;
 @Entity
 public class Person {
 
-
     /*
      * IDENTITY ==> Database will take of this
      */
@@ -23,13 +21,11 @@ public class Person {
     private Integer personId;
 
 
-
     @Column(name = "first_name")
     private String firstName;
 
     @Column(name = "last_name")
     private String lastName;
-
 
 
     @Column(name = "created_date")
@@ -121,7 +117,6 @@ public class Person {
         return "Person [personId=" + personId + ", firstName=" + firstName + ", lastName=" + lastName + ", createdDate="
                 + createdDate + ", email=" + email + ", age=" + age + "]";
     }
-
 
 
 

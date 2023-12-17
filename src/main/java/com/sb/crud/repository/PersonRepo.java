@@ -5,12 +5,13 @@ import java.util.Date;
 import java.util.List;
 
 import com.sb.crud.model.Person;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface PersonRepo extends CrudRepository<Person, Integer> {
+public interface PersonRepo extends JpaRepository<Person, Integer> {
 
     /*
      *
@@ -32,7 +33,7 @@ public interface PersonRepo extends CrudRepository<Person, Integer> {
     //select * from tbl_person where last_name=lastName order by created_date desc
 
 
-    public List<Person> findByAgeLessThanEqual(Integer age);
+    public List<Person> readByAgeLessThanEqual(Integer age);
 
     //select * from tbl_person where age<=age;
 
@@ -49,4 +50,7 @@ public interface PersonRepo extends CrudRepository<Person, Integer> {
     public List<Person> findByCreatedDateBetween(Date startdate,Date endDate);
 
     //select * from tbl_person where created_date>=startdate and created_date<=endDate
+
+
+    List<Person> findByFirstNameAndAge(String firstName, Integer age);
 }

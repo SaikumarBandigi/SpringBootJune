@@ -7,8 +7,9 @@ package com.sb;
 
 
 import com.sb.crud.model.Person;
+import com.sb.crud.model.Product;
 import com.sb.crud.service.PersonService;
-import com.sb.employeeapplication.Employee;
+import com.sb.crud.service.ProductService;
 import com.sb.employeeapplication.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -16,18 +17,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.ConfigurableWebApplicationContext;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
 @EnableWebMvc
-public class SpringBootJuneApplication implements CommandLineRunner {
+public class SpringBootJuneApplication {
 
 
     //  @Autowired
@@ -42,14 +40,45 @@ public class SpringBootJuneApplication implements CommandLineRunner {
     @Autowired
     private PersonService personService;
 
+    public SpringBootJuneApplication() {
+    }
+
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(SpringBootJuneApplication.class, args);
+        ConfigurableApplicationContext configurableApplicationContext = SpringApplication.run(SpringBootJuneApplication.class, args);
 
     }
 
-    @Override
-    public void run(String... args) throws Exception {
-    }
+
+    //////////////////// one way for CommandLineRunner //////////////////////
+//
+//    // Inner class implementing CommandLineRunner
+//    @Bean
+//    public CommandLineRunner init(ProductService productService) {
+//        return new MyCommandLineRunner(productService);
+//    }
+//
+//    // Inner class definition
+//    private static class MyCommandLineRunner implements CommandLineRunner {
+//
+//        private final ProductService productService;
+//
+//        public MyCommandLineRunner(ProductService productService) {
+//            this.productService = productService;
+//        }
+//
+//        @Override
+//        public void run(String... args) throws Exception {
+//            // Your initialization logic here
+//            // Example: Adding a product
+//            Product product = new Product();
+//            product.setPname("dell");
+//            product.setEmail("d@gmail.com");
+//            productService.saveProduct(product);
+//        }
+//    }
+
+
+//////////////////////////// second way for CommandLineRunner /////////////////
 
 //    @Bean
 //    CommandLineRunner commandLineRunner(EmployeeService employeeService) {
@@ -63,6 +92,8 @@ public class SpringBootJuneApplication implements CommandLineRunner {
 //        };
 //    }
 
+
+    ////////////////////// third way for CommandLineRunner (through implements commandLineRunner) ///////////////
 //    @Override
 //    public void run(String... args) throws Exception {
 //        Employee employee1=new Employee();
@@ -121,7 +152,7 @@ public class SpringBootJuneApplication implements CommandLineRunner {
         // List<Person> personList=new ArrayList<Person>();
         // Person per=new Person();
 
-        List<Person>  personList = Arrays.asList(new Person("Kiran", "kumar", "kiran@gmail.com", 20),
+        List<Person> personList = Arrays.asList(new Person("Kiran", "kumar", "kiran@gmail.com", 20),
                 new Person("Ram", "kumar", "ram@gmail.com", 22),
                 new Person("RamKiran", "LaxmiKiran", "sita@gmail.com", 30),
                 new Person("Lakshamn", "Seth", "seth@gmail.com", 50),
@@ -141,4 +172,12 @@ public class SpringBootJuneApplication implements CommandLineRunner {
         }
     }
 
+
+////////////////////////////////////////////////
+
+
 }
+
+/*
+In a Spring application, you can then use the configuration class to load the application context and obtain beans.
+ */
